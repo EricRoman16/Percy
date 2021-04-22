@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 129507662}
   - component: {fileID: 129507661}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: InventoryPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 203764679}
   - component: {fileID: 203764678}
   m_Layer: 5
-  m_Name: HealthPanel
+  m_Name: StatsPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -624,6 +624,7 @@ MonoBehaviour:
   Player: {fileID: 1687098860}
   FollowPlayer: 1
   Peeking: 0
+  lookLength: 2
   smoothSpd: 0.125
   offset: {x: 0, y: 0, z: 0}
 --- !u!1 &1149404907
@@ -2647,7 +2648,7 @@ GameObject:
   - component: {fileID: 2002071841}
   - component: {fileID: 2002071840}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2901,5 +2902,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8546447533693769913, guid: 6b7e3eba4830ad84aa61d515a0b78fc1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 32be66d498045414ba7302ebdfe04164,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b7e3eba4830ad84aa61d515a0b78fc1, type: 3}

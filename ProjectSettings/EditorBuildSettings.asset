@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/EricRoman/MainMenuScene.unity
+    path: Assets/EricRoman/Scenes/MainMenuScene.unity
     guid: 960e853063b1a6f41a6b2295d35984ae
   - enabled: 1
     path: Assets/Eric/BaseScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/EricRoman/ScavengingScene.unity
+    path: Assets/EricRoman/Scenes/ScavengingScene.unity
     guid: ca29c6cc22a4ab34abb0e6bd72e08184
   m_configObjects: {}

@@ -8,6 +8,7 @@ public class MainCameraScript : MonoBehaviour
     public bool FollowPlayer = true;
     public bool Peeking;
 
+    public float lookLength = 2;
     public float smoothSpd = 0.05f;
     public Vector3 offset;
 
@@ -18,7 +19,6 @@ public class MainCameraScript : MonoBehaviour
 
         float yy = Player.transform.position.y - worldPosition.y;
         float xx = Player.transform.position.x - worldPosition.x;
-
 
         float a = Mathf.Atan(yy / xx);
         Debug.Log(a);
@@ -37,22 +37,18 @@ public class MainCameraScript : MonoBehaviour
             FollowPlayer = true;
         }
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 direction = mousePosition - Player.transform.position;
 
-        float a = Player.transform.position.x - mousePosition.x;
-        float b = Player.transform.position.y - mousePosition.y;
-        float c = Mathf.Sqrt(Mathf.Pow(a, 2) + Mathf.Pow(b, 2));
-        float theta = Mathf.Asin(b / c); // this is in radians!!!
-
-        float b2 = Mathf.Sin(theta);
-        float a2 = Mathf.Cos(theta);
+        float angle = Mathf.Atan2(direction.y, direction.x);
+        float b2 = Mathf.Sin(angle);
+        float a2 = Mathf.Cos(angle);
 
         offset = new Vector3(a2, b2, -10f);
         if (Peeking)
         {
-            Vector3 desiredPosition = Player.transform.position + (2 * offset);
+            Vector3 desiredPosition = Player.transform.position + (lookLength * offset);
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpd);
             transform.position = smoothedPosition;
-            
         }
     }
 
@@ -60,6 +56,5 @@ public class MainCameraScript : MonoBehaviour
     {
         if (FollowPlayer)
             transform.position = Player.transform.position + new Vector3(0f,0f,-10f);
-
     }
 }

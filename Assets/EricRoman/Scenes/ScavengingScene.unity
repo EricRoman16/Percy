@@ -853,12 +853,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 606884005}
   m_CullTransparentMesh: 0
---- !u!212 &623497358 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 8546447533693769913, guid: 6b7e3eba4830ad84aa61d515a0b78fc1,
-    type: 3}
-  m_PrefabInstance: {fileID: 8546447534010116332}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &757157096
 GameObject:
   m_ObjectHideFlags: 0
@@ -1904,23 +1898,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8546447534010116332}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1687098861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1687098860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2b19e2b42fa0524eb6831d48e426839, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Up: {fileID: 21300000, guid: 4d82ea6e28e3bb14f8359e80d7779b49, type: 3}
-  Down: {fileID: 21300000, guid: 32be66d498045414ba7302ebdfe04164, type: 3}
-  Right: {fileID: 21300000, guid: 33b56a401c1a184489c8c391b8d4943d, type: 3}
-  Left: {fileID: 21300000, guid: 3909a9ddc03c5fd4680de514b3133e61, type: 3}
-  SR: {fileID: 623497358}
 --- !u!1 &2002071838
 GameObject:
   m_ObjectHideFlags: 0
@@ -2187,11 +2164,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8546447533693769913, guid: 6b7e3eba4830ad84aa61d515a0b78fc1,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 32be66d498045414ba7302ebdfe04164,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b7e3eba4830ad84aa61d515a0b78fc1, type: 3}

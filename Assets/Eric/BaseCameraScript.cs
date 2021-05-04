@@ -118,5 +118,7 @@ public class BaseCameraScript : MonoBehaviour
 
         Vector2 smoothedSize = Vector2.Lerp(new Vector2(cam.orthographicSize, 0), new Vector2(desiredSize, 0), smoothSizeSpd);
         cam.orthographicSize = smoothedSize.x;
+
+        //If focus is upon whole scene, make it so world space buttons are not functional
     }
 }

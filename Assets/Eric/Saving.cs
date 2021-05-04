@@ -7,6 +7,9 @@ using System.IO;
 
 public class Saving : MonoBehaviour
 {
+    public bool smoke;
+    public bool speed;
+    public byte health;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +27,9 @@ public class Saving : MonoBehaviour
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/save.dat");
         UpgradeSave data = new UpgradeSave();
-        data.smoke = false;
-        data.speed = false;
-        data.health = 0;
+        data.smoke = smoke;
+        data.speed = speed;
+        data.health = health;
         bf.Serialize(file, data);
         Debug.Log("Save Success");
     }
@@ -51,5 +54,10 @@ public class Saving : MonoBehaviour
         {
             Debug.Log(error);
         }
+    }
+    
+    public void SetHealth(byte h)
+    {
+        health = h;
     }
 }

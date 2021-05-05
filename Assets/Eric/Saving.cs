@@ -5,15 +5,16 @@ using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
+
 public class Saving : MonoBehaviour
 {
     public bool smoke;
     public bool speed;
-    public byte health;
+    public int health;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Load();
     }
 
     // Update is called once per frame
@@ -38,7 +39,7 @@ public class Saving : MonoBehaviour
     {
         public bool smoke;
         public bool speed;
-        public byte health;
+        public int health;
     }
 
     public void Load()
@@ -48,6 +49,9 @@ public class Saving : MonoBehaviour
             FileStream file = File.Open(Application.persistentDataPath + "/save.dat", FileMode.Open);
             UpgradeSave data = (UpgradeSave)bf.Deserialize(file);
             file.Close();
+            smoke = data.smoke;
+            speed = data.speed;
+            health = data.health;
             Debug.Log("Load Success");
         }
         catch (Exception error)
@@ -56,7 +60,7 @@ public class Saving : MonoBehaviour
         }
     }
     
-    public void SetHealth(byte h)
+    public void SetHealth(int h)
     {
         health = h;
     }

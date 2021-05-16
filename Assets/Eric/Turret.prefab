@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8683292095557627340}
   - component: {fileID: 2216419955099792149}
   - component: {fileID: 2649169461878707885}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,10 +97,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DetectRadius: 0
   player: {fileID: 0}
-  distX: 0
-  distY: 0
+  distance: {x: 0, y: 0}
   angle: 0
+  dangle: 0
   detected: 0
+  south: {fileID: 21300000, guid: d88c76b84867dd246b475e09100f05c1, type: 3}
+  southwest: {fileID: 21300000, guid: 01217d189607f26489fa85eb94f591e6, type: 3}
+  west: {fileID: 21300000, guid: 067932ccee155914dbe376d58a9f5229, type: 3}
+  northwest: {fileID: 21300000, guid: 7227516f212a24141b77bab8637c4e0e, type: 3}
+  north: {fileID: 21300000, guid: 18a5230f64f27b5478947f7191f1a21c, type: 3}
+  northeast: {fileID: 21300000, guid: d2dd0694751427a43b36a262886adddf, type: 3}
+  east: {fileID: 21300000, guid: 4f1d5ca166dc13943900414660f75e30, type: 3}
+  southeast: {fileID: 21300000, guid: 9f7fd3ee04bba57438d4e06e48c17e35, type: 3}
 --- !u!61 &2649169461878707885
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -125,5 +133,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3333334, y: 1.3333334}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0

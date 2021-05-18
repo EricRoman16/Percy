@@ -11,6 +11,11 @@ public class TurretScript : MonoBehaviour
     public float angle;
     public float dangle;
     public bool detected;
+    public Object Bullet;
+    public float magnitude;
+    public float bulletSpeed;
+    public float rate;
+    public float count;
 
     //Frames
     public Sprite south;
@@ -25,10 +30,13 @@ public class TurretScript : MonoBehaviour
     //components
     private SpriteRenderer sprite;
 
+    private GameObject NewBullet;
+
     // Start is called before the first frame update
     void Start()
     {
         sprite = gameObject.GetComponent<SpriteRenderer>();
+        count = rate;
     }
 
     // Update is called once per frame
@@ -89,9 +97,9 @@ public class TurretScript : MonoBehaviour
             {
                 sprite.sprite = southeast;
             }
-            else if (dangle >= 337.5)
+            else if (dangle >= 337.5 )
             {
-                sprite.sprite = southeast;
+                sprite.sprite = south;
             }
             else
             {
@@ -103,6 +111,14 @@ public class TurretScript : MonoBehaviour
             sprite.sprite = south;
         }
         //Shoot bullet
+        if (detected == true && count <= 0)
+        {
+            NewBullet = (GameObject) Instantiate(Bullet, transform.position, Quaternion.LookRotation(new Vector3(0, 0, 1), new Vector3(0, 0, 1)));
+            NewBullet.GetComponent<Rigidbody2D>().SetRotation(dangle - 180);
+            magnitude = Mathf.Sqrt(Mathf.Pow(distance.x, 2) + Mathf.Pow(distance.y, 2));
+            NewBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed * (distance.x/magnitude), bulletSpeed * (distance.y/magnitude));
+        }
+        
         //
     }
 }

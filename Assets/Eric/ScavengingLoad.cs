@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class ScavengingLoad : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class ScavengingLoad : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        smoke = player.hasSmokeUpgrade; 
+        Load();
     }
 
     // Update is called once per frame
@@ -72,5 +73,33 @@ public class ScavengingLoad : MonoBehaviour
         {
             Debug.Log(error);
         }
+    }
+    public void Save()
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + "/save.dat");
+        UpgradeSave data = new UpgradeSave();
+        data.smoke = player.hasSmokeUpgrade;
+        data.speed = player.hasSpeedUpgrade;
+        if (player.hasHealthUpgrade3)
+        {
+            data.health = 3;
+        }
+        else if (player.hasHealthUpgrade2)
+        {
+            data.health = 2;
+        }
+        else if (player.hasHealthUpgrade1)
+        {
+            data.health = 1;
+        }
+        else
+        {
+            data.health = 0;
+        }
+        bf.Serialize(file, data);
+        Debug.Log("Save Success");
+
+        //switch to base scene
     }
 }

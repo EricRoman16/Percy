@@ -40,6 +40,7 @@ public class Saving : MonoBehaviour
         public bool smoke;
         public bool speed;
         public int health;
+        public int scrap;
     }
 
     public void Load()

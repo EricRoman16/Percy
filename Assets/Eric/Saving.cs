@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 
 public class Saving : MonoBehaviour
@@ -23,7 +24,7 @@ public class Saving : MonoBehaviour
         
     }
 
-    public void Save()
+    public void Save(int code)
     {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/save.dat");
@@ -33,6 +34,8 @@ public class Saving : MonoBehaviour
         data.health = health;
         bf.Serialize(file, data);
         Debug.Log("Save Success");
+        //switch to scavenging specific scene
+        //SceneManager.LoadScene()  load the scene we choose
     }
     [Serializable]
     class UpgradeSave

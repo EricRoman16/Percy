@@ -30,6 +30,7 @@ public class ScavengingLoad : MonoBehaviour
     {
         public bool smoke;
         public bool speed;
+        public bool shield;
         public int health;
         public int scrap;
     }
@@ -40,7 +41,7 @@ public class ScavengingLoad : MonoBehaviour
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/save.dat", FileMode.Open);
-            UpgradeSave data = (UpgradeSave)bf.Deserialize(file);
+            UpgradeSave data = bf.Deserialize(file) as UpgradeSave;
             file.Close();
             player.hasSmokeUpgrade = data.smoke;
             player.hasSpeedUpgrade = data.speed;
@@ -101,5 +102,8 @@ public class ScavengingLoad : MonoBehaviour
         Debug.Log("Save Success");
 
         //switch to base scene
+        SceneManager.LoadScene(1);
     }
+
+    
 }

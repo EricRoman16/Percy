@@ -37,7 +37,7 @@ public class Saving : MonoBehaviour
         
     }
 
-    public void Save(int code)
+    public void Save()
     {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/save.dat");
@@ -50,7 +50,7 @@ public class Saving : MonoBehaviour
         bf.Serialize(file, data);
         Debug.Log("Save Success");
         //switch to scavenging specific scene
-        //SceneManager.LoadScene()  load the scene we choose
+        SceneManager.LoadScene(2);
     }
     [Serializable]
     class UpgradeSave
@@ -67,7 +67,7 @@ public class Saving : MonoBehaviour
         try{
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/save.dat", FileMode.Open);
-            UpgradeSave data = (UpgradeSave)bf.Deserialize(file);
+            UpgradeSave data = bf.Deserialize(file) as UpgradeSave;
             file.Close();
             smoke = data.smoke;
             speed = data.speed;
@@ -80,11 +80,6 @@ public class Saving : MonoBehaviour
         {
             Debug.Log(error);
         }
-    }
-    
-    public void SetHealth(int h)
-    {
-        health = h;
     }
 
     public void Upgrade(int type)
@@ -136,12 +131,17 @@ public class Saving : MonoBehaviour
             case 6: //rocket --- END CONDITION
                 if (scrap >= rocketreq)
                 {
-                    //SceneManager.LoadScene();
+                    //SceneManager.LoadScene(); Victory Screen
                 }
                 break;
             default:
                 Debug.LogError("Upgrade Out Of Range!");
                 break;
         }
+    }
+    public void ClearSave()
+    {
+        File.Delete(Application.persistentDataPath + "/save.dat");
+        Debug.Log("Save Cleared!");
     }
 }

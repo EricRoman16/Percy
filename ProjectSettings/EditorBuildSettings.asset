@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenuScene.unity
     guid: 960e853063b1a6f41a6b2295d35984ae
   - enabled: 1
-    path: Assets/Eric/BaseScene.unity
+    path: Assets/Scenes/BaseScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/ScavengingScene.unity
-    guid: ca29c6cc22a4ab34abb0e6bd72e08184
+    path: Assets/Scenes/ScavengingScene3.unity
+    guid: 089bc8513286cfc43b5c5168a946d110
   m_configObjects: {}

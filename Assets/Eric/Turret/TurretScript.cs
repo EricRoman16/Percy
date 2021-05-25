@@ -37,11 +37,14 @@ public class TurretScript : MonoBehaviour
     {
         sprite = gameObject.GetComponent<SpriteRenderer>();
         count = rate;
+        count = rate;
     }
 
     // Update is called once per frame
     void Update()
     {
+        count -= Time.deltaTime;
+
         //Determine Distance
 
         distance = player.transform.position - transform.position;
@@ -117,6 +120,7 @@ public class TurretScript : MonoBehaviour
             NewBullet.GetComponent<Rigidbody2D>().SetRotation(dangle - 180);
             magnitude = Mathf.Sqrt(Mathf.Pow(distance.x, 2) + Mathf.Pow(distance.y, 2));
             NewBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed * (distance.x/magnitude), bulletSpeed * (distance.y/magnitude));
+            count = rate;
         }
         
         //

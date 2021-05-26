@@ -19,7 +19,7 @@ public class BulletScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject == player)
+        if(collision.gameObject == player && player.GetComponent<PlayerScript>().shieldActive == true)
         {
             //reduce player health
         }

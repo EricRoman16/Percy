@@ -14,6 +14,14 @@ public class PlayerScript : MonoBehaviour
     public int healthUpgrade;
     public int scrap;
 
+    public bool shieldActive;
+
+    //timing
+
+    public bool smokeActive;
+
+    //timing
+
     private void Start()
     {
         rb2 = GetComponent<Rigidbody2D>();

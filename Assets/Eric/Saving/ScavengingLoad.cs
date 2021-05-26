@@ -10,9 +10,6 @@ public class ScavengingLoad : MonoBehaviour
 {
     public PlayerScript player;
 
-    private bool smoke;
-    public bool speed;
-    public int health;
     // Start is called before the first frame update
     void Start()
     {

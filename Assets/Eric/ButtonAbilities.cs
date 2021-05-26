@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ButtonAbilities : MonoBehaviour
 {
     public PlayerScript player;
+    public GameObject Player;
     public Image tint;
 
     // Start is called before the first frame update
@@ -27,6 +28,7 @@ public class ButtonAbilities : MonoBehaviour
             case 0:
                 if (player.smokeUpgrade == true && player.smokeLeft <= 0 && player.smokes > 0)
                 {
+                    Player.GetComponent<SpriteRenderer>().color = new Color(121, 121, 121, 121);
                     player.smokeLeft = player.smokeTime;
                     --player.smokes;
                     player.smokeActive = true;

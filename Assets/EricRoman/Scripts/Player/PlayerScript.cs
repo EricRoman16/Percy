@@ -23,6 +23,8 @@ public class PlayerScript : MonoBehaviour
     public int health;
     public float UIHealth;
 
+    public Image tint;
+
     public bool shieldActive;
 
     //timing
@@ -196,10 +198,12 @@ public class PlayerScript : MonoBehaviour
 
         if(smokeLeft <= 0)
         {
+            GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
             smokeActive = false;
         }
         if(shieldLeft <= 0)
         {
+            tint.color += new Color(0,0,0,-90);
             shieldActive = false;
         }
 

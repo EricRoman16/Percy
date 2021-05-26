@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
@@ -9,6 +11,8 @@ using UnityEngine.SceneManagement;
 
 public class Saving : MonoBehaviour
 {
+    public TMP_Text text;
+
     public bool smoke;
     public bool speed;
     public int health;
@@ -34,7 +38,7 @@ public class Saving : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        text.text = ":" + scrap;
     }
 
     public void Save()

@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
+    #region Variables
     private Rigidbody2D rb2;
 
     public Vector2 ForceTarget;
@@ -47,6 +48,7 @@ public class PlayerScript : MonoBehaviour
     public Sprite b4;
     public Sprite b5;
     public Sprite b6;
+    #endregion
 
     [Serializable]
     class UpgradeSave
@@ -149,42 +151,69 @@ public class PlayerScript : MonoBehaviour
         //2 6532
         //3 65432
 
-        
-
-
-        if (health < 1)
-        {
-            scrap = 0;
-            //GameObject.Find("EventSystem").GetComponent<ScavengingLoad>().Save();
-        }
-
         UIHealth = (5 *(health / (healthUpgrade + 2)));
 
-        
+        if (healthUpgrade == 0)
+        {
+            if (health == 2) { UIHealth = 6; }
+            if (health == 1) { UIHealth = 3; }
+            if (health == 0) { UIHealth = 1; }
+        }
+        if (healthUpgrade == 1)
+        {
+            if (health == 3) { UIHealth = 6; }
+            if (health == 2) { UIHealth = 4; }
+            if (health == 1) { UIHealth = 2; }
+            if (health == 0) { UIHealth = 1; }
+        }
+        if (healthUpgrade == 2)
+        {
+            if (health == 4){UIHealth = 6;}
+            if (health == 3){UIHealth = 5;}
+            if (health == 2){UIHealth = 3;}
+            if (health == 1){UIHealth = 2;}
+            if (health == 0){UIHealth = 1;}
+        }
+        if (healthUpgrade == 3)
+        {
+            if (health == 5){UIHealth = 6;}
+            if (health == 4){UIHealth = 5;}
+            if (health == 3){UIHealth = 4;}
+            if (health == 2){UIHealth = 3;}
+            if (health == 1){UIHealth = 2;}
+            if (health == 0){UIHealth = 1;}
+        }
+
         switch (UIHealth)
         {
-            case 0:
+            case 1:
                 battery.sprite = b1;
                 break;
-            case 1:
+            case 2:
                 battery.sprite = b2;
                 break;
-            case 2:
+            case 3:
                 battery.sprite = b3;
                 break;
-            case 3:
+            case 4:
                 battery.sprite = b4;
                 break;
-            case 4:
+            case 5:
                 battery.sprite = b5;
                 break;
-            case 5:
+            case 6:
                 battery.sprite = b6;
                 break;
             default:
                 break;
         }
-        
+
+        if (health < 1)
+        {
+            scrap = 0;
+            GameObject.Find("EventSystem").GetComponent<ScavengingLoad>().Save();
+        }
+
     }
 
     

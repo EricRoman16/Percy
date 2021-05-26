@@ -11,6 +11,8 @@ public class Level_UI_Handler : MonoBehaviour
     public bool MusicPlaying = true;
     public GameObject OptionsMenu;
     public GameObject PauseMenuUI;
+    public GameObject ScrapCount;
+    public GameObject Player;
     public AudioSource AS;
     
 
@@ -36,6 +38,7 @@ public class Level_UI_Handler : MonoBehaviour
             }
             
         }
+        ScrapCount.GetComponent<TextMesh>().text = ":" + Player.GetComponent<PlayerScript>().scrap;
     }
 
     public void Pause()
@@ -77,5 +80,10 @@ public class Level_UI_Handler : MonoBehaviour
     public void OpenCredits()
     {
         SceneManager.LoadScene(4);
+    }
+
+    public void ExitToBase()
+    {
+        SceneManager.LoadScene(1);
     }
 }

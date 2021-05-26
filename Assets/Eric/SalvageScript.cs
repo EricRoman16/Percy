@@ -24,7 +24,8 @@ public class SalvageScript : MonoBehaviour
         distance = new Vector2(Mathf.Abs(transform.position.x - player.transform.position.x), Mathf.Abs(transform.position.y - player.transform.position.y));
         if(distance.x <= collectDist && distance.y <= collectDist)
         {
-            //collection procedure
+            player.GetComponent<PlayerScript>().scrap += 1;
+            Destroy(this.gameObject);
         }
     }
 }

@@ -12,7 +12,7 @@ public class PlayerScript : MonoBehaviour
     public bool smokeUpgrade;
     public bool shieldUpgrade;
     public int healthUpgrade;
-    public int scrap;
+    public int scrap = 0;
 
     public bool shieldActive;
 

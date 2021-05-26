@@ -968,6 +968,7 @@ GameObject:
   - component: {fileID: 550543379}
   - component: {fileID: 550543378}
   - component: {fileID: 550543381}
+  - component: {fileID: 550543382}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1047,6 +1048,25 @@ MonoBehaviour:
   speedreq: 0
   shieldreq: 0
   rocketreq: 0
+--- !u!114 &550543382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550543377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6835608ff3e5e574aab84b286e1b1ee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  h1: {fileID: 1670585320}
+  h2: {fileID: 441992933}
+  h3: {fileID: 2110056180}
+  speed: {fileID: 1507606873}
+  shield: {fileID: 1735498369}
+  smoke: {fileID: 725858841}
+  player: {fileID: 550543381}
 --- !u!1 &663140062
 GameObject:
   m_ObjectHideFlags: 0

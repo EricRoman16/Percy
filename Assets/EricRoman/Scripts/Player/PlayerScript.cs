@@ -1,6 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -37,6 +41,55 @@ public class PlayerScript : MonoBehaviour
     {
         rb2 = GetComponent<Rigidbody2D>();
         health = healthUpgrade + 2;
+    }
+
+    [Serializable]
+    class UpgradeSave
+    {
+        public bool smoke;
+        public bool speed;
+        public bool shield;
+        public int health;
+        public int scrap;
+    }
+
+    public void Load()
+    {
+        try
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/save.dat", FileMode.Open);
+            UpgradeSave data = bf.Deserialize(file) as UpgradeSave;
+            file.Close();
+            smokeUpgrade = data.smoke;
+            speedUpgrade = data.speed;
+            shieldUpgrade = data.shield;
+            healthUpgrade = data.health;
+            scrap = data.scrap;
+
+            Debug.Log("Load Success");
+        }
+        catch
+        {
+            Debug.LogError("error");
+        }
+    }
+
+    public void Save()
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + "/save.dat");
+        UpgradeSave data = new UpgradeSave();
+        data.smoke = smokeUpgrade;
+        data.speed = speedUpgrade;
+        data.shield = shieldUpgrade;
+        data.health = healthUpgrade;
+        data.scrap = scrap;
+        bf.Serialize(file, data);
+        Debug.Log("Save Success");
+
+        //switch to base scene
+        SceneManager.LoadScene(1);
     }
 
     // Update is called once per frame

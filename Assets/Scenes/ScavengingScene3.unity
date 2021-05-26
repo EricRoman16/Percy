@@ -5095,7 +5095,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1463312421
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5128,7 +5128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.5475056, b: 1, a: 0.3529412}
+  m_Color: {r: 0, g: 0.5475056, b: 1, a: 0}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -22145,6 +22145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 985141514}
+  tint: {fileID: 0}
 --- !u!4 &2110160428 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7476746477920537577, guid: 70376b4dee330cb40976d12ade5ed013,

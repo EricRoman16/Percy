@@ -40,7 +40,7 @@ public class ScavengingLoad : MonoBehaviour
             FileStream file = File.Open(Application.persistentDataPath + "/save.dat", FileMode.Open);
             UpgradeSave data = bf.Deserialize(file) as UpgradeSave;
             file.Close();
-            player.smokeUpgrade = data.smoke;
+            player.GetComponent<PlayerScript>().smokeUpgrade = data.smoke;
             player.speedUpgrade = data.speed;
             player.shieldUpgrade = data.shield;
             player.healthUpgrade = data.health;

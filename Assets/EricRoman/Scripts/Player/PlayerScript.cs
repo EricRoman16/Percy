@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -33,6 +34,15 @@ public class PlayerScript : MonoBehaviour
     public int smokes;
 
     public float defaultSpeed = 20;
+
+    
+    public Image battery;
+    public Sprite b1;
+    public Sprite b2;
+    public Sprite b3;
+    public Sprite b4;
+    public Sprite b5;
+    public Sprite b6;
 
     private void Start()
     {
@@ -95,9 +105,33 @@ public class PlayerScript : MonoBehaviour
             //GameObject.Find("EventSystem").GetComponent<ScavengingLoad>().Save();
         }
 
-        UIHealth = Mathf.RoundToInt(6 *(health / (healthUpgrade + 2)));
+        UIHealth = (5 *(health / (healthUpgrade + 2)));
 
-
+        
+        switch (UIHealth)
+        {
+            case 0:
+                battery.sprite = b1;
+                break;
+            case 1:
+                battery.sprite = b2;
+                break;
+            case 2:
+                battery.sprite = b3;
+                break;
+            case 3:
+                battery.sprite = b4;
+                break;
+            case 4:
+                battery.sprite = b5;
+                break;
+            case 5:
+                battery.sprite = b6;
+                break;
+            default:
+                break;
+        }
+        
     }
 
     

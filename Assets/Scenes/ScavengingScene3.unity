@@ -9074,9 +9074,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8546447533413547266, guid: 6b7e3eba4830ad84aa61d515a0b78fc1,
         type: 3}
-      propertyPath: healthUpgrade
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: battery
+      value: 
+      objectReference: {fileID: 405042438}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b7e3eba4830ad84aa61d515a0b78fc1, type: 3}
 --- !u!1001 &1571181448

@@ -21,6 +21,7 @@ public class Level_UI_Handler : MonoBehaviour
 
     void Start()
     {
+        Resume();
         PauseMenuUI.SetActive(false);
         //AS.play();
     }

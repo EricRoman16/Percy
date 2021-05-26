@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonAbilities : MonoBehaviour
 {
     public PlayerScript player;
+    public Image tint;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +35,7 @@ public class ButtonAbilities : MonoBehaviour
             case 1:
                 if (player.shieldUpgrade == true && player.shieldLeft <= 0 && player.shields > 0)
                 {
+                    tint.color = new Color(0,140,255,90);
                     player.shieldLeft = player.shieldTime;
                     --player.shields;
                     player.shieldActive = true;

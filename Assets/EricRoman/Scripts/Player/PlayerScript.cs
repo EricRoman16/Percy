@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+(??)using System;
+(??)using System.Runtime.Sesrialization.Formatters.Binary;
+(??)using System.IO;
+(??)using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {

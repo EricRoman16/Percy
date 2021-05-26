@@ -78,7 +78,7 @@ public class Saving : MonoBehaviour
         }
         catch (Exception error)
         {
-            Debug.Log(error);
+            Debug.LogError(error);
         }
     }
 

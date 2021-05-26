@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class ScavengingLoad : MonoBehaviour
 {
-    public PlayerAbilities player;
+    public PlayerScript player;
 
     private bool smoke;
     public bool speed;
@@ -43,31 +43,12 @@ public class ScavengingLoad : MonoBehaviour
             FileStream file = File.Open(Application.persistentDataPath + "/save.dat", FileMode.Open);
             UpgradeSave data = bf.Deserialize(file) as UpgradeSave;
             file.Close();
-            player.hasSmokeUpgrade = data.smoke;
-            player.hasSpeedUpgrade = data.speed;
-            switch (data.health)
-            {
-                case 0:
-                    player.hasHealthUpgrade1 = false;
-                    player.hasHealthUpgrade2 = false;
-                    player.hasHealthUpgrade3 = false;
-                    break;
-                case 1:
-                    player.hasHealthUpgrade1 = true;
-                    player.hasHealthUpgrade2 = false;
-                    player.hasHealthUpgrade3 = false;
-                    break;
-                case 2:
-                    player.hasHealthUpgrade1 = true;
-                    player.hasHealthUpgrade2 = true;
-                    player.hasHealthUpgrade3 = false;
-                    break;
-                case 3:
-                    player.hasHealthUpgrade1 = true;
-                    player.hasHealthUpgrade2 = true;
-                    player.hasHealthUpgrade3 = true;
-                    break;
-            }
+            player.smokeUpgrade = data.smoke;
+            player.speedUpgrade = data.speed;
+            player.shieldUpgrade = data.shield;
+            player.healthUpgrade = data.health;
+            player.scrap = data.scrap;
+            
             Debug.Log("Load Success");
         }
         catch (Exception error)
@@ -80,24 +61,11 @@ public class ScavengingLoad : MonoBehaviour
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/save.dat");
         UpgradeSave data = new UpgradeSave();
-        data.smoke = player.hasSmokeUpgrade;
-        data.speed = player.hasSpeedUpgrade;
-        if (player.hasHealthUpgrade3)
-        {
-            data.health = 3;
-        }
-        else if (player.hasHealthUpgrade2)
-        {
-            data.health = 2;
-        }
-        else if (player.hasHealthUpgrade1)
-        {
-            data.health = 1;
-        }
-        else
-        {
-            data.health = 0;
-        }
+        data.smoke = player.smokeUpgrade;
+        data.speed = player.speedUpgrade;
+        data.shield = player.shieldUpgrade;
+        data.health = player.healthUpgrade;
+        data.scrap = player.scrap;
         bf.Serialize(file, data);
         Debug.Log("Save Success");
 

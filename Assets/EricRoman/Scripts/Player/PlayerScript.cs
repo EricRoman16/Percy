@@ -1,36 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public class PlayerScript : MonoBehaviour
 {
-    public CollisionDetectorScript north;
-    public CollisionDetectorScript east;
-    public CollisionDetectorScript south;
-    public CollisionDetectorScript west;
+    private Rigidbody2D rb2;
 
+    public Vector2 ForceTarget;
+
+    public bool speedUpgrade;
+    public bool smokeUpgrade;
+    public bool shieldUpgrade;
+    public int healthUpgrade;
+    public int scrap;
+
+    private void Start()
+    {
+        rb2 = GetComponent<Rigidbody2D>();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A) && west)
+        switch (speedUpgrade)
         {
-            transform.position += new Vector3(Mathf.Floor(Input.GetAxisRaw("Horizontal")), 0f, 0f);
-            //Vector3.Lerp(transform.position, transform.position + new Vector3(-1f, 0f, 0f), .1f);
+            case true:
+                ForceTarget = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+                rb2.AddForce(ForceTarget);
+                break;
+            default:
+                ForceTarget = new Vector2(Input.GetAxis("Horizontal") / 2, Input.GetAxis("Vertical") / 2);
+                rb2.AddForce(ForceTarget);
+                break;
         }
-        else if (Input.GetKeyDown(KeyCode.D) && east)
-        {
-            transform.position += new Vector3(Mathf.Floor(Input.GetAxisRaw("Horizontal")), 0f, 0f);
-        }
-        else if (Input.GetKeyDown(KeyCode.W) && north)
-        {
-            transform.position += new Vector3(0f, Mathf.Floor(Input.GetAxisRaw("Vertical")), 0f);
-        }
-        else if (Input.GetKeyDown(KeyCode.S) && south)
-        {
-            transform.position += new Vector3(0f, Mathf.Floor(Input.GetAxisRaw("Vertical")), 0f);
-        }
+
     }
 
     

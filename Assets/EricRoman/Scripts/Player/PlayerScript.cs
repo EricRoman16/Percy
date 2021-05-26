@@ -48,6 +48,55 @@ public class PlayerScript : MonoBehaviour
     public Sprite b5;
     public Sprite b6;
 
+    [Serializable]
+    class UpgradeSave
+    {
+        public bool smoke;
+        public bool speed;
+        public bool shield;
+        public int health;
+        public int scrap;
+    }
+
+    public void Load()
+    {
+        try
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/save.dat", FileMode.Open);
+            UpgradeSave data = bf.Deserialize(file) as UpgradeSave;
+            file.Close();
+            smokeUpgrade = data.smoke;
+            speedUpgrade = data.speed;
+            shieldUpgrade = data.shield;
+            healthUpgrade = data.health;
+            scrap = data.scrap;
+
+            Debug.Log("Load Success");
+        }
+        catch (Exception error)
+        {
+            Debug.Log(error);
+        }
+    }
+    public void Save()
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + "/save.dat");
+        UpgradeSave data = new UpgradeSave();
+        data.smoke = smokeUpgrade;
+        data.speed = speedUpgrade;
+        data.shield = shieldUpgrade;
+        data.health = healthUpgrade;
+        data.scrap = scrap;
+        bf.Serialize(file, data);
+        Debug.Log("Save Success");
+
+        //switch to base scene
+        SceneManager.LoadScene(1);
+    }
+
+
     private void Start()
     {
         rb2 = GetComponent<Rigidbody2D>();

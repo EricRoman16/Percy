@@ -40,7 +40,7 @@ public class Saving : MonoBehaviour
     {
         text.text = ":" + scrap;
     }
-
+    /*
     public void Save()
     {
         BinaryFormatter bf = new BinaryFormatter();
@@ -56,6 +56,19 @@ public class Saving : MonoBehaviour
         //switch to scavenging specific scene
         SceneManager.LoadScene(2);
     }
+    */
+
+    public void Save()
+    {
+        PlayerPrefs.SetInt("health", health);
+        PlayerPrefs.SetInt("scrap", scrap);
+        PlayerPrefs.SetInt("speed", Convert.ToInt32(speed));
+        PlayerPrefs.SetInt("smoke", Convert.ToInt32(smoke));
+        PlayerPrefs.SetInt("shield", Convert.ToInt32(shield));
+
+        SceneManager.LoadScene(2);
+    }
+
     [Serializable]
     class UpgradeSave
     {
@@ -66,6 +79,48 @@ public class Saving : MonoBehaviour
         public int scrap;
     }
 
+    public void Load()
+    {
+        try
+        {
+            health = PlayerPrefs.GetInt("health", 0);
+            switch (PlayerPrefs.GetInt("smoke", 0))
+            {
+                case 0:
+                    smoke = false;
+                    break;
+                case 1:
+                    smoke = true;
+                    break;
+            }
+            switch (PlayerPrefs.GetInt("shield", 0))
+            {
+                case 0:
+                    shield = false;
+                    break;
+                case 1:
+                    shield = true;
+                    break;
+            }
+            switch (PlayerPrefs.GetInt("speed", 0))
+            {
+                case 0:
+                    speed = false;
+                    break;
+                case 1:
+                    speed = true;
+                    break;
+            }
+            scrap = PlayerPrefs.GetInt("scrap");
+
+            Debug.Log("Load Success");
+        }
+        catch (Exception error)
+        {
+            Debug.LogError(error);
+        }
+    }
+    /*
     public void Load()
     {
         try{
@@ -85,7 +140,7 @@ public class Saving : MonoBehaviour
             Debug.LogError(error);
         }
     }
-
+    */
     public void Upgrade(int type)
     {
         switch (type)
@@ -145,7 +200,8 @@ public class Saving : MonoBehaviour
     }
     public void ClearSave()
     {
-        File.Delete(Application.persistentDataPath + "/save.dat");
+        //File.Delete(Application.persistentDataPath + "/save.dat");
+        PlayerPrefs.DeleteAll();
         Debug.Log("Save Cleared!");
     }
 }

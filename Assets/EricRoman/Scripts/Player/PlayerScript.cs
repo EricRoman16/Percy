@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
-using UnityEngine.SceneManagement;
+(??)using System;
+(??)using System.Runtime.Sesrialization.Formatters.Binary;
+(??)using System.IO;
+(??)using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -19,7 +19,7 @@ public class PlayerScript : MonoBehaviour
     public int scrap = 0;
 
     public int health;
-    public int UIHealth;
+    public float UIHealth;
 
     public bool shieldActive;
 
@@ -36,60 +36,21 @@ public class PlayerScript : MonoBehaviour
     public float smokeLeft;
     public int smokes;
 
+    public float defaultSpeed = 20;
+
+    
+    public Image battery;
+    public Sprite b1;
+    public Sprite b2;
+    public Sprite b3;
+    public Sprite b4;
+    public Sprite b5;
+    public Sprite b6;
 
     private void Start()
     {
         rb2 = GetComponent<Rigidbody2D>();
         health = healthUpgrade + 2;
-    }
-
-    [Serializable]
-    class UpgradeSave
-    {
-        public bool smoke;
-        public bool speed;
-        public bool shield;
-        public int health;
-        public int scrap;
-    }
-
-    public void Load()
-    {
-        try
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/save.dat", FileMode.Open);
-            UpgradeSave data = bf.Deserialize(file) as UpgradeSave;
-            file.Close();
-            smokeUpgrade = data.smoke;
-            speedUpgrade = data.speed;
-            shieldUpgrade = data.shield;
-            healthUpgrade = data.health;
-            scrap = data.scrap;
-
-            Debug.Log("Load Success");
-        }
-        catch
-        {
-            Debug.LogError("error");
-        }
-    }
-
-    public void Save()
-    {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/save.dat");
-        UpgradeSave data = new UpgradeSave();
-        data.smoke = smokeUpgrade;
-        data.speed = speedUpgrade;
-        data.shield = shieldUpgrade;
-        data.health = healthUpgrade;
-        data.scrap = scrap;
-        bf.Serialize(file, data);
-        Debug.Log("Save Success");
-
-        //switch to base scene
-        SceneManager.LoadScene(1);
     }
 
     // Update is called once per frame
@@ -98,11 +59,11 @@ public class PlayerScript : MonoBehaviour
         switch (speedUpgrade)
         {
             case true:
-                ForceTarget = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+                ForceTarget = new Vector2((Input.GetAxis("Horizontal") * defaultSpeed) * Time.deltaTime, Input.GetAxis("Vertical") * defaultSpeed * Time.deltaTime);
                 rb2.AddForce(ForceTarget);
                 break;
             default:
-                ForceTarget = new Vector2(Input.GetAxis("Horizontal") / 2, Input.GetAxis("Vertical") / 2);
+                ForceTarget = new Vector2((Input.GetAxis("Horizontal") * defaultSpeed / 2) * Time.deltaTime, ((Input.GetAxis("Vertical") * defaultSpeed) / 2) * Time.deltaTime);
                 rb2.AddForce(ForceTarget);
                 break;
         }
@@ -144,10 +105,36 @@ public class PlayerScript : MonoBehaviour
         if (health < 1)
         {
             scrap = 0;
-            GameObject.Find("EventSystem").GetComponent<ScavengingLoad>().Save();
+            //GameObject.Find("EventSystem").GetComponent<ScavengingLoad>().Save();
         }
 
-        UIHealth = Mathf.RoundToInt(6 *(health / (healthUpgrade + 2)));
+        UIHealth = (5 *(health / (healthUpgrade + 2)));
+
+        
+        switch (UIHealth)
+        {
+            case 0:
+                battery.sprite = b1;
+                break;
+            case 1:
+                battery.sprite = b2;
+                break;
+            case 2:
+                battery.sprite = b3;
+                break;
+            case 3:
+                battery.sprite = b4;
+                break;
+            case 4:
+                battery.sprite = b5;
+                break;
+            case 5:
+                battery.sprite = b6;
+                break;
+            default:
+                break;
+        }
+        
     }
 
     

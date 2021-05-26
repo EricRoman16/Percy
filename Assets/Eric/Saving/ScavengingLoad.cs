@@ -8,8 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class ScavengingLoad : MonoBehaviour
 {
-    //public PlayerScript player;
-    public GameObject player;
+    public PlayerScript player;
 
     // Start is called before the first frame update
     void Start()
@@ -41,17 +40,17 @@ public class ScavengingLoad : MonoBehaviour
             FileStream file = File.Open(Application.persistentDataPath + "/save.dat", FileMode.Open);
             UpgradeSave data = bf.Deserialize(file) as UpgradeSave;
             file.Close();
-            player.GetComponent<PlayerScript>().smokeUpgrade = data.smoke;
-            player.GetComponent<PlayerScript>().speedUpgrade = data.speed;
-            player.GetComponent<PlayerScript>().shieldUpgrade = data.shield;
-            player.GetComponent<PlayerScript>().healthUpgrade = data.health;
-            player.GetComponent<PlayerScript>().scrap = data.scrap;
+            player.smokeUpgrade = data.smoke;
+            player.speedUpgrade = data.speed;
+            player.shieldUpgrade = data.shield;
+            player.healthUpgrade = data.health;
+            player.scrap = data.scrap;
             
             Debug.Log("Load Success");
         }
-        catch
+        catch (Exception error)
         {
-            Debug.LogError("error");
+            Debug.Log(error);
         }
     }
     public void Save()
@@ -59,11 +58,11 @@ public class ScavengingLoad : MonoBehaviour
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/save.dat");
         UpgradeSave data = new UpgradeSave();
-        data.smoke = player.GetComponent<PlayerScript>().smokeUpgrade;
-        data.speed = player.GetComponent<PlayerScript>().speedUpgrade;
-        data.shield = player.GetComponent<PlayerScript>().shieldUpgrade;
-        data.health = player.GetComponent<PlayerScript>().healthUpgrade;
-        data.scrap = player.GetComponent<PlayerScript>().scrap;
+        data.smoke = player.smokeUpgrade;
+        data.speed = player.speedUpgrade;
+        data.shield = player.shieldUpgrade;
+        data.health = player.healthUpgrade;
+        data.scrap = player.scrap;
         bf.Serialize(file, data);
         Debug.Log("Save Success");
 

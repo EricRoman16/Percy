@@ -39,6 +39,10 @@ public class Saving : MonoBehaviour
     void Update()
     {
         text.text = ":" + scrap;
+        if(Input.GetKeyDown(KeyCode.K) == true)
+        {
+            scrap += 60;
+        } //cheat code
     }
     /*
     public void Save()

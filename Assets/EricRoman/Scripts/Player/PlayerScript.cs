@@ -163,6 +163,7 @@ public class PlayerScript : MonoBehaviour
         Load();
         rb2 = GetComponent<Rigidbody2D>();
         health = healthUpgrade + 2;
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame

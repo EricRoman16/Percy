@@ -17,10 +17,18 @@ public class PlayerScript : MonoBehaviour
     public bool shieldActive;
 
     //timing
+    public float shieldTime;
+    public float shieldLeft;
+    public int shields;
+
 
     public bool smokeActive;
 
     //timing
+    public float smokeTime;
+    public float smokeLeft;
+    public int smokes;
+
 
     private void Start()
     {
@@ -42,6 +50,19 @@ public class PlayerScript : MonoBehaviour
                 break;
         }
 
+        if(Input.GetAxis("Smoke") > 0.95 && smokeUpgrade == true && smokeLeft <= 0 && smokes > 0)
+        {
+            smokeLeft = smokeTime;
+            --smokes;
+        }
+        if(Input.GetAxis("Shield") > 0.95 && shieldUpgrade == true && shieldLeft <= 0 && shields > 0)
+        {
+            shieldLeft = shieldTime;
+            --shields;
+        }
+
+        smokeLeft -= Time.deltaTime;
+        shieldLeft -= Time.deltaTime;
     }
 
     

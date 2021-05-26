@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class TurretScript : MonoBehaviour
 {
+    public float defaultRadius;
     public float DetectRadius;
     public GameObject player;
+    private PlayerScript pScript;
     public Vector2 distance;
     public float angle;
     public float dangle;
@@ -37,13 +39,25 @@ public class TurretScript : MonoBehaviour
     {
         sprite = gameObject.GetComponent<SpriteRenderer>();
         count = rate;
-        count = rate;
+        DetectRadius = defaultRadius;
+        player = GameObject.Find("Player");
+        pScript = player.GetComponent<PlayerScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
         count -= Time.deltaTime;
+
+        switch (pScript.smokeActive)
+        {
+            case true:
+                DetectRadius = defaultRadius / 2;
+                break;
+            default:
+                DetectRadius = defaultRadius;
+                break;
+        }
 
         //Determine Distance
 

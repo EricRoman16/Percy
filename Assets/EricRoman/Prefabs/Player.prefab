@@ -98,6 +98,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForceTarget: {x: 0, y: 0}
+  speedUpgrade: 0
+  smokeUpgrade: 0
+  shieldUpgrade: 0
+  healthUpgrade: 0
+  scrap: 0
+  shieldActive: 0
+  shieldTime: 10
+  shieldLeft: 0
+  shields: 3
+  smokeActive: 0
+  smokeTime: 10
+  smokeLeft: 0
+  smokes: 3
 --- !u!114 &1687098861
 MonoBehaviour:
   m_ObjectHideFlags: 0

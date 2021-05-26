@@ -274,7 +274,7 @@ public class PlayerScript : MonoBehaviour
         if (health < 1)
         {
             scrap = 0;
-            GameObject.Find("EventSystem").GetComponent<ScavengingLoad>().Save();
+            SceneManager.LoadScene(1);
         }
 
     }

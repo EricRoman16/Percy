@@ -22,7 +22,7 @@ public class BulletScript : MonoBehaviour
         if(collision.gameObject == player && player.GetComponent<PlayerScript>().shieldActive == false)
         {
             //reduce player health
-            --player.GetComponent<PlayerScript>().healthUpgrade;
+            --player.GetComponent<PlayerScript>().health;
         }
         Object.Destroy(gameObject);  //destroys itself
     }

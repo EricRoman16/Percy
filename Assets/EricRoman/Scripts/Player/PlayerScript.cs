@@ -85,14 +85,16 @@ public class PlayerScript : MonoBehaviour
         //2 6532
         //3 65432
 
-        UIHealth = Mathf.RoundToInt((healthUpgrade + 2) / health);
+        
 
 
-        if (health <= 0)
+        if (health < 1)
         {
             scrap = 0;
             GameObject.Find("EventSystem").GetComponent<ScavengingLoad>().Save();
         }
+
+        UIHealth = Mathf.RoundToInt(6 *(health / (healthUpgrade + 2)));
     }
 
     

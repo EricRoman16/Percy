@@ -80,7 +80,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!114 &2216419955099792149
 MonoBehaviour:
@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bd32fafeb9c2d442995f0a179598d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultRadius: 4
   DetectRadius: 4
   player: {fileID: 0}
   distance: {x: 0, y: 0}
@@ -113,3 +114,4 @@ MonoBehaviour:
   northeast: {fileID: 21300000, guid: d2dd0694751427a43b36a262886adddf, type: 3}
   east: {fileID: 21300000, guid: 4f1d5ca166dc13943900414660f75e30, type: 3}
   southeast: {fileID: 21300000, guid: 9f7fd3ee04bba57438d4e06e48c17e35, type: 3}
+  Last: {fileID: 0}

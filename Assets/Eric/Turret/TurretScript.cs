@@ -29,6 +29,8 @@ public class TurretScript : MonoBehaviour
     public Sprite east;
     public Sprite southeast;
 
+    public Sprite Last;
+
     //components
     private SpriteRenderer sprite;
 
@@ -40,8 +42,9 @@ public class TurretScript : MonoBehaviour
         sprite = gameObject.GetComponent<SpriteRenderer>();
         count = rate;
         DetectRadius = defaultRadius;
-        player = GameObject.Find("Player");
+        
         pScript = player.GetComponent<PlayerScript>();
+        Last = south;
     }
 
     // Update is called once per frame
@@ -89,43 +92,52 @@ public class TurretScript : MonoBehaviour
             if (dangle >= 22.5 && dangle <= 67.5)
             {
                 sprite.sprite = southwest;
+                Last = southwest;
             }
             else if (dangle >= 67.5 && dangle <= 112.5)
             {
                 sprite.sprite = west;
+                Last = west;
             }
             else if (dangle >= 112.5 && dangle <= 157.5)
             {
                 sprite.sprite = northwest;
+                Last = northwest;
             }
             else if (dangle >= 157.5 && dangle <= 202.5)
             {
                 sprite.sprite = north;
+                Last = north;
             }
             else if (dangle >= 202.5 && dangle <= 247.5)
             {
                 sprite.sprite = northeast;
+                Last = northeast;
             }
             else if (dangle >= 247.5 && dangle <= 292.5)
             {
                 sprite.sprite = east;
+                Last = east;
             }
             else if (dangle >= 292.5 && dangle <= 337.5)
             {
                 sprite.sprite = southeast;
+                Last = southeast;
             }
             else if (dangle >= 337.5 )
             {
                 sprite.sprite = south;
+                Last = south;
             }
             else
             {
                 sprite.sprite = south;
+                Last = south;
             }
         }
         else
         {
-            sprite.sprite = south;
+            sprite.sprite = Last;
         }
         //Shoot bullet
         if (detected == true && count <= 0)

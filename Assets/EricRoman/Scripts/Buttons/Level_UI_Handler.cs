@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -21,7 +22,7 @@ public class Level_UI_Handler : MonoBehaviour
     void Start()
     {
         PauseMenuUI.SetActive(false);
-        
+        //AS.play();
     }
 
     void Update()
@@ -38,7 +39,7 @@ public class Level_UI_Handler : MonoBehaviour
             }
             
         }
-        ScrapCount.GetComponent<TextMesh>().text = ":" + Player.GetComponent<PlayerScript>().scrap;
+        ScrapCount.GetComponent<TextMeshProUGUI>().text = ":" + Player.GetComponent<PlayerScript>().scrap;
     }
 
     public void Pause()

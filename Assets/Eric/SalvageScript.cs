@@ -28,4 +28,13 @@ public class SalvageScript : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            player.GetComponent<PlayerScript>().scrap += 1;
+            Destroy(this.gameObject);
+        }
+    }
 }

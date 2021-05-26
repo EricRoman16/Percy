@@ -1119,15 +1119,15 @@ MonoBehaviour:
   smoke: 0
   speed: 0
   health: 0
-  scrap: 0
+  scrap: 100
   shield: 0
-  h1req: 0
-  h2req: 0
-  h3req: 0
+  h1req: 5
+  h2req: 10
+  h3req: 15
   smokereq: 0
-  speedreq: 0
-  shieldreq: 0
-  rocketreq: 0
+  speedreq: 7
+  shieldreq: 5
+  rocketreq: 45
 --- !u!114 &550543382
 MonoBehaviour:
   m_ObjectHideFlags: 0

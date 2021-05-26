@@ -14,6 +14,9 @@ public class PlayerScript : MonoBehaviour
     public int healthUpgrade;
     public int scrap = 0;
 
+    public int health;
+    public int UIHealth;
+
     public bool shieldActive;
 
     //timing
@@ -33,6 +36,7 @@ public class PlayerScript : MonoBehaviour
     private void Start()
     {
         rb2 = GetComponent<Rigidbody2D>();
+        health = healthUpgrade + 2;
     }
 
     // Update is called once per frame
@@ -54,15 +58,41 @@ public class PlayerScript : MonoBehaviour
         {
             smokeLeft = smokeTime;
             --smokes;
+            smokeActive = true;
         }
         if(Input.GetAxis("Shield") > 0.95 && shieldUpgrade == true && shieldLeft <= 0 && shields > 0)
         {
             shieldLeft = shieldTime;
             --shields;
+            shieldActive = true;
         }
 
         smokeLeft -= Time.deltaTime;
         shieldLeft -= Time.deltaTime;
+
+        if(smokeLeft <= 0)
+        {
+            smokeActive = false;
+        }
+        if(shieldLeft <= 0)
+        {
+            shieldActive = false;
+        }
+
+
+        //no upgrade 6-3
+        //1 upgrade 6-4-2
+        //2 6532
+        //3 65432
+
+        UIHealth = Mathf.RoundToInt((healthUpgrade + 2) / health);
+
+
+        if (health <= 0)
+        {
+            scrap = 0;
+            GameObject.Find("EventSystem").GetComponent<ScavengingLoad>().Save();
+        }
     }
 
     

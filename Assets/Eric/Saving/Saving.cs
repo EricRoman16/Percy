@@ -131,7 +131,7 @@ public class Saving : MonoBehaviour
             case 6: //rocket --- END CONDITION
                 if (scrap >= rocketreq)
                 {
-                    //SceneManager.LoadScene(); Victory Screen
+                    SceneManager.LoadScene(3); // Victory Screen
                 }
                 break;
             default:

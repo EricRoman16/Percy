@@ -25,6 +25,7 @@ public class SalvageScript : MonoBehaviour
         if(distance.x <= collectDist && distance.y <= collectDist)
         {
             //collection procedure
+            ++player.GetComponent<PlayerScript>().scrap;
         }
     }
 }

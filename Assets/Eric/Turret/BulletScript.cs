@@ -19,9 +19,9 @@ public class BulletScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject == player && player.GetComponent<PlayerScript>().shieldActive == true)
+        if(collision.gameObject == player && player.GetComponent<PlayerScript>().shieldActive == false)
         {
-            //reduce player health
+            --player.GetComponent<PlayerScript>().health;
         }
         Object.Destroy(gameObject);  //destroys itself
     }

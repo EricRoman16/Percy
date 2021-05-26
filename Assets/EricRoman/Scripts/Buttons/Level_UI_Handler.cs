@@ -9,21 +9,17 @@ public class Level_UI_Handler : MonoBehaviour
 {
     public bool GameIsPaused = false;
     public bool MusicPlaying = true;
-    public bool LevelWon = false;
     public GameObject OptionsMenu;
     public GameObject PauseMenuUI;
-    public GameObject WinLoseMenu;
-    public GameObject Lose;
-    public GameObject Win;
-    private AudioSource AS;
-    public GameObject level;
+    public AudioSource AS;
+    
 
 
 
     void Start()
     {
         PauseMenuUI.SetActive(false);
-        AS = level.GetComponent<AudioSource>();
+        
     }
 
     void Update()
@@ -78,18 +74,8 @@ public class Level_UI_Handler : MonoBehaviour
         OptionsMenu.SetActive(true);
     }
 
-    public void WinLoseScreen()
+    public void OpenCredits()
     {
-        WinLoseMenu.SetActive(true);
-        if (LevelWon)
-        {
-            Lose.SetActive(false);
-            Win.SetActive(true);
-        }
-        else
-        {
-            Win.SetActive(false);
-            Lose.SetActive(true);
-        }
+        SceneManager.LoadScene(4);
     }
 }

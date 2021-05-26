@@ -6,7 +6,7 @@ public class SalvageScript : MonoBehaviour
 {
     // Start is called before the first frame update4
 
-    public GameObject player;
+    private GameObject player;
 
     public Vector2 distance;
 

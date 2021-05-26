@@ -1026,7 +1026,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Health - 2
+  m_Text: 'Health level 2 : 10'
 --- !u!222 &510067665
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1216,7 +1216,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Shield
+  m_Text: 'Shield : 5'
 --- !u!222 &663140065
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1824,10 +1824,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 32
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1835,7 +1835,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Build The Rocket
+  m_Text: 'Build The Rocket : 45'
 --- !u!222 &891841586
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2385,7 +2385,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Speed
+  m_Text: 'Speed : 7'
 --- !u!222 &1127891121
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2964,7 +2964,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 3
+  m_Text: 'Health level 2 : 15'
 --- !u!222 &1478111304
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3808,7 +3808,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Cloak
+  m_Text: 'Cloak : 15'
 --- !u!222 &1777301875
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3916,7 +3916,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Health - 1
+  m_Text: 'Health level 1 : 5'
 --- !u!222 &1849512387
 CanvasRenderer:
   m_ObjectHideFlags: 0

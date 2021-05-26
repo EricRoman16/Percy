@@ -29,7 +29,7 @@ public class ButtonAbilities : MonoBehaviour
                 if (player.smokeUpgrade == true && player.smokeLeft <= 0 && player.smokes > 0)
                 {
                     Debug.Log("cloak activated");
-                    Player.GetComponent<SpriteRenderer>().color = new Color(121, 121, 121, 121);
+                    Player.GetComponent<SpriteRenderer>().color = new Color(121, 121, 121, 0.4f);
                     player.smokeLeft = player.smokeTime;
                     --player.smokes;
                     player.smokeActive = true;
@@ -39,7 +39,7 @@ public class ButtonAbilities : MonoBehaviour
                 if (player.shieldUpgrade == true && player.shieldLeft <= 0 && player.shields > 0)
                 {
                     Debug.Log("shield activated");
-                    tint.color = new Color(0,140,255,90);
+                    tint.color = new Color(0,140,255,0.5f);
                     player.shieldLeft = player.shieldTime;
                     --player.shields;
                     player.shieldActive = true;

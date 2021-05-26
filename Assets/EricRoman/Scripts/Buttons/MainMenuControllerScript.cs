@@ -30,5 +30,9 @@ public class MainMenuControllerScript : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+    public void Credits()
+    {
+        SceneManager.LoadScene(4);
+    }
 
 }

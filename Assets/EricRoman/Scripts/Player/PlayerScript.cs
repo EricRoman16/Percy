@@ -15,7 +15,7 @@ public class PlayerScript : MonoBehaviour
     public int scrap = 0;
 
     public int health;
-    public int UIHealth;
+    public float UIHealth;
 
     public bool shieldActive;
 
@@ -32,6 +32,7 @@ public class PlayerScript : MonoBehaviour
     public float smokeLeft;
     public int smokes;
 
+    public float defaultSpeed = 20;
 
     private void Start()
     {
@@ -45,11 +46,11 @@ public class PlayerScript : MonoBehaviour
         switch (speedUpgrade)
         {
             case true:
-                ForceTarget = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+                ForceTarget = new Vector2((Input.GetAxis("Horizontal") * defaultSpeed) * Time.deltaTime, Input.GetAxis("Vertical") * defaultSpeed * Time.deltaTime);
                 rb2.AddForce(ForceTarget);
                 break;
             default:
-                ForceTarget = new Vector2(Input.GetAxis("Horizontal") / 2, Input.GetAxis("Vertical") / 2);
+                ForceTarget = new Vector2((Input.GetAxis("Horizontal") * defaultSpeed / 2) * Time.deltaTime, ((Input.GetAxis("Vertical") * defaultSpeed) / 2) * Time.deltaTime);
                 rb2.AddForce(ForceTarget);
                 break;
         }
@@ -91,10 +92,12 @@ public class PlayerScript : MonoBehaviour
         if (health < 1)
         {
             scrap = 0;
-            GameObject.Find("EventSystem").GetComponent<ScavengingLoad>().Save();
+            //GameObject.Find("EventSystem").GetComponent<ScavengingLoad>().Save();
         }
 
         UIHealth = Mathf.RoundToInt(6 *(health / (healthUpgrade + 2)));
+
+
     }
 
     

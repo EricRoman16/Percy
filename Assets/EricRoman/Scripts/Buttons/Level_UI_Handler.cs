@@ -87,4 +87,9 @@ public class Level_UI_Handler : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    public void ExitToTitle()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

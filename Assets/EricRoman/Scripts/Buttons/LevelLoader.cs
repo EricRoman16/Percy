@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
-    public Animator transition;
-    public float transitionTime = 1f;
+    
     public bool levelFinished = false;
 
     // Update is called once per frame
@@ -18,36 +17,28 @@ public class LevelLoader : MonoBehaviour
             levelFinished = false;
         }
     }
-
-    IEnumerator LoadLevel(string levelName)
+    public void OpenCredits()
     {
-        //Play animation
-        transition.SetTrigger("Start");
-
-        //Wait
-        yield return new WaitForSeconds(transitionTime);
-
-        //Load Scene
-        SceneManager.LoadScene(levelName);
+        SceneManager.LoadScene(4);
     }
+
+    public void ExitToBase()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void ExitToTitle()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 
 
     public void LoadNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-    public void LoadCredits()
-    {
-        StartCoroutine(LoadLevel("Credits"));
-    }
-    public void LoadLevel1()
-    {
-        StartCoroutine(LoadLevel("Level1"));
-    }
-    public void LoadMainMenu()
-    {
-        StartCoroutine(LoadLevel("MainMenu"));
-    }
+    
 }
 
     
